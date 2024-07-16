@@ -1,0 +1,21 @@
+name: BuildAndTest
+
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: install python
+              run: sudo apt install python3
+
+            - name: install Flask
+              run: pip install flask
+            
+            - name: Run test
+              run: python test_apy.py
